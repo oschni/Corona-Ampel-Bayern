@@ -23,7 +23,7 @@ title.font  = Font.mediumSystemFont(10)
 let latest  = widget.addDate(new Date(data.lastUpdate))
 latest.font = Font.mediumSystemFont(6)
 
-widget.addSpacer(5)
+widget.addSpacer(25)
 
 let mainStack = widget.addStack()
 mainStack.layoutHorizontally()
@@ -54,7 +54,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     let labelITS = stackITS.addText('ITS Belegung')
     labelITS.font = Font.mediumSystemFont(6)
 
-    yellowStack.addSpacer(0)
+    yellowStack.addSpacer(50)
 
     let stackPatients = yellowStack.addStack()
     stackPatients.layoutVertically()
@@ -64,6 +64,35 @@ if (data.currentIntensiveCarePatients >= 600) {
     yellowStack.addSpacer(0)
     let labelHospitalization = stackPatients.addText('Einweisungen')
     labelHospitalization.font = Font.mediumSystemFont(6)
+} else if(data.currentIntensiveCarePatients <= 449 || data.hospitalizationLast7Days <= 1199) {
+    let greenStack = widget.addStack()
+    greenStack.layoutHorizontally()
+
+    let stackITS = greenStack.addStack()
+    stackITS.layoutVertically()
+    let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
+    stringValueITS.font = Font.mediumSystemFont(20)
+    stringValueITS.textColor = Color.green()
+    greenStack.addSpacer(0)
+    let labelITS = stackITS.addText('ITS Belegung')
+    labelITS.font = Font.mediumSystemFont(6)
+
+    greenStack.addSpacer(50)
+
+    let stackPatients = greenStack.addStack()
+    stackPatients.layoutVertically()
+    let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
+    stringValue2.font = Font.mediumSystemFont(20)
+    stringValue2.textColor = Color.green()
+    greenStack.addSpacer(0)
+    let labelHospitalization = stackPatients.addText('Einweisungen')
+    labelHospitalization.font = Font.mediumSystemFont(6)
+
+    greenStack.addSpacer(10)
+    let allFineStack = greenStack.addText('GRÜN!')
+    allFineStack.font = Font.mediumSystemFont(20)
+    allFineStack.textColor = Color.green()
+    )
 }
 
 Script.setWidget(widget)
