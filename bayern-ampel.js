@@ -6,7 +6,7 @@
 **
 */
 
-let updateHash = '7e5542724d20c93d5eb5f19276df3571'
+let updateHash = '7e5542724d20c93d5eb5f19276df357106ec664b4ae75932317d71379968fe4e'
 
 let widget      = new ListWidget()
 widget.url      = 'https://corona-ampel-bayern.de/'
@@ -34,13 +34,14 @@ if (data.currentIntensiveCarePatients >= 600) {
     let redStack = widget.addStack()
     redStack.layoutHorizontally()
 
-    let label = widget.addText(data.currentIntensiveCarePatients.toString())
-    label.font = Font.mediumSystemFont(20)
-    label.textColor = Color.red()
+    let valueString = widget.addText(data.currentIntensiveCarePatients.toString())
+    valueString.font = Font.mediumSystemFont(20)
+    valueString.textColor = Color.red()
 
     redStack.addSpacer(0)
-    let value = widget.addText('ITS Belegung')
-    value.font = Font.mediumSystemFont(12)
+    let label = widget.addText('ITS Belegung')
+    label.font = Font.mediumSystemFont(10)
+    label.centerAlignContent()
 }
 
 
