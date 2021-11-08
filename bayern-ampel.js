@@ -32,20 +32,31 @@ if (data.currentIntensiveCarePatients >= 600) {
     let redStack = widget.addStack()
     redStack.layoutHorizontally()
 
-    let stringValue = widget.addText(data.currentIntensiveCarePatients.toString())
-    stringValue.font = Font.mediumSystemFont(20)
-    stringValue.textColor = Color.red()
-
+    let stackITS = redStack.addStack()
+    stackITS.layoutVertically()
+    let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
+    stringValueITS.font = Font.mediumSystemFont(20)
+    stringValueITS.textColor = Color.red()
     redStack.addSpacer(0)
-    let label = widget.addText('ITS Belegung')
-    label.font = Font.mediumSystemFont(6)
+    let labelITS = stackITS.addText('ITS Belegung')
+    labelITS.font = Font.mediumSystemFont(6)
 
-    widget.addSpacer(10)
+    redStack.addSpacer(40)
 
+    let stackPatients = redStack.addStack()
+    stackPatients.layoutVertically()
+    let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
+    stringValue2.font = Font.mediumSystemFont(20)
+    stringValue2.textColor = Color.red()
+    redStack.addSpacer(0)
+    let labelHospitalization = stackPatients.addText('Einweisungen')
+    labelHospitalization.font = Font.mediumSystemFont(6)
+
+    widget.addSpacer(20)
     emojiiStack = widget.addStack()
     emojiiStack.layoutHorizontally()
     
-    let labelEmoji = emojiiStack.addText(' 🤬 ')
+    let labelEmoji = emojiiStack.addText(' @#§"$! 🤬 ')
     labelEmoji.textColor = Color.red()
     labelEmoji.font = Font.mediumSystemFont(30)
 
@@ -62,7 +73,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     let labelITS = stackITS.addText('ITS Belegung')
     labelITS.font = Font.mediumSystemFont(6)
 
-    yellowStack.addSpacer(50)
+    yellowStack.addSpacer(40)
 
     let stackPatients = yellowStack.addStack()
     stackPatients.layoutVertically()
@@ -73,12 +84,11 @@ if (data.currentIntensiveCarePatients >= 600) {
     let labelHospitalization = stackPatients.addText('Einweisungen')
     labelHospitalization.font = Font.mediumSystemFont(6)
 
-    yellowStack.addSpacer(10)
-
+    widget.addSpacer(20)
     emojiiStack = widget.addStack()
     emojiiStack.layoutHorizontally()
     
-    let labelEmoji = emojiiStack.addText(' 🤮 ')
+    let labelEmoji = emojiiStack.addText(' Buääärks 🤮 ')
     labelEmoji.textColor = Color.red()
     labelEmoji.font = Font.mediumSystemFont(30)
 } else if(data.currentIntensiveCarePatients <= 449 || data.hospitalizationLast7Days <= 1199) {
@@ -94,7 +104,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     let labelITS = stackITS.addText('ITS Belegung')
     labelITS.font = Font.mediumSystemFont(6)
 
-    greenStack.addSpacer(50)
+    greenStack.addSpacer(40)
 
     let stackPatients = greenStack.addStack()
     stackPatients.layoutVertically()
@@ -105,7 +115,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     let labelHospitalization = stackPatients.addText('Einweisungen')
     labelHospitalization.font = Font.mediumSystemFont(6)
 
-    greenStack.addSpacer(10)
+    widget.addSpacer(20)
     let allFineStack = widget.addStack()
     allFineStack.layoutHorizontally()
 
