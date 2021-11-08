@@ -26,15 +26,15 @@ widget.addSpacer(16)
 let stackITS = widget.addStack()
 stackITS.layoutHorizontally()
 addStackToView(stackITS, {shortDescription: 'ITS Belegung:', footnote: '(Betten)', stringValue: data.currentIntensiveCarePatients.toString()}, Color.red())
-
+widget.addSpacer(10)
 let stackAdmissions = widget.addStack()
 stackAdmissions.layoutHorizontally()
 addStackToView(stackAdmissions, {shortDescription: 'Einweisungen', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7Days.toString()}, Color.yellow())
-
+widget.addSpacer(10)
 let stackIncidence = widget.addStack()
 stackIncidence.layoutHorizontally()
 addStackToView(stackIncidence, {shortDescription: 'Inzidenz', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7DaysIncidence.toString()}, Color.green())
-
+widget.addSpacer(10)
 
     //if (data.currentIntensiveCarePatients >= 600) {}
 // } else if (data.currentIntensiveCarePatients >= 450 || data.hospitalizationLast7Days >= 1200) {
