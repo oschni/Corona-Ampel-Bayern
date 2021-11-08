@@ -28,20 +28,40 @@ widget.addSpacer(0)
 
 let mainStack = widget.addStack()
 mainStack.layoutHorizontally()
-mainStack.backgroundColor = Color.lightGray()
+
 
 if (data.currentIntensiveCarePatients >= 600) {
     let redStack = widget.addStack()
     redStack.layoutHorizontally()
     redStack.centerAlignContent()
+    redStack.backgroundColor = Color.lightGray()
 
-    let valueString = widget.addText(data.currentIntensiveCarePatients.toString())
-    valueString.font = Font.mediumSystemFont(20)
-    valueString.textColor = Color.red()
+    let stringValue = widget.addText(data.currentIntensiveCarePatients.toString())
+    stringValue.font = Font.mediumSystemFont(20)
+    stringValue.textColor = Color.red()
 
     redStack.addSpacer(0)
     let label = widget.addText('ITS Belegung')
     label.font = Font.mediumSystemFont(10)
+
+} else if (data.currentIntensiveCarePatients >= 450 || data.hospitalizationLast7Days >= 1200) {
+    let yellowStack = widget.addStack()
+    yellowStack.layoutHorizontally()
+    yellowStack.backgroundColor = Color.lightGray()
+
+    let stackITS = yellowStack.addStack()
+    stackITS.layoutVertically()
+    let stringValue = stackITS.addText(data.currentIntensiveCarePatients.toString())
+    stringValue.font = Font.mediumSystemFont(20)
+    stringValue.textColor = Color.yellow()
+    
+    yellowStack.addSpacer(0)
+
+    let stackPatients = yellowStack.addStack()
+    stackPatients.layoutVertically()
+    let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
+    stringValue2.font = Font.mediumSystemFont(20)
+    stringValue2.textColor = Color.yellow()
 }
 
 
