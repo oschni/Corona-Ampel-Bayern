@@ -89,10 +89,12 @@ if (data.currentIntensiveCarePatients >= 600) {
     labelHospitalization.font = Font.mediumSystemFont(6)
 
     greenStack.addSpacer(10)
-    let allFineStack = greenStack.addText('GRÜN!')
-    allFineStack.font = Font.mediumSystemFont(20)
-    allFineStack.textColor = Color.green()
-    )
+    let allFineStack = greenStack.addStack()
+    allFineStack.layoutHorizontally()
+
+    let labelAllFine = allFineStack.addText('Alles Tutti!')
+    labelAllFine.font = Font.mediumSystemFont(20)
+    labelAllFine.textColor = Color.green()
 }
 
 Script.setWidget(widget)
