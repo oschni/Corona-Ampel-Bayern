@@ -22,7 +22,7 @@ title.font  = Font.mediumSystemFont(10)
 let latest  = widget.addDate(new Date(data.lastUpdate))
 latest.font = Font.mediumSystemFont(6)
 
-widget.addSpacer(10)
+widget.addSpacer(0)
 
 /*
 let trafficLightStack = widget.addStack()
@@ -34,17 +34,17 @@ addStackToView(trafficLightStack, {shortDescription: '🚦', footnote: null, str
 let stackITS = widget.addStack()
 stackITS.layoutHorizontally()
 addStackToView(stackITS, {shortDescription: 'ITS Belegung', footnote: '(Betten)', stringValue: data.currentIntensiveCarePatients.toString()}, Color.red())
-widget.addSpacer(2)
+widget.addSpacer(0)
 
 let stackAdmissions = widget.addStack()
 stackAdmissions.layoutHorizontally()
 addStackToView(stackAdmissions, {shortDescription: 'Einweisungen', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7Days.toString()}, Color.yellow())
-widget.addSpacer(2)
+widget.addSpacer(0)
 
 let stackIncidence = widget.addStack()
 stackIncidence.layoutHorizontally()
 addStackToView(stackIncidence, {shortDescription: 'Inzidenz', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7DaysIncidence.toString()}, Color.green())
-widget.addSpacer(2)
+widget.addSpacer(0)
 
     //if (data.currentIntensiveCarePatients >= 600) {}
 // } else if (data.currentIntensiveCarePatients >= 450 || data.hospitalizationLast7Days >= 1200) {
