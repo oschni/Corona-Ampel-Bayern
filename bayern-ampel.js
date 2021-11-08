@@ -38,23 +38,24 @@ if (data.currentIntensiveCarePatients >= 600) {
 
     let stringValue = widget.addText(data.currentIntensiveCarePatients.toString())
     stringValue.font = Font.mediumSystemFont(20)
-    stringValue.textColor = Color.red()
 
     redStack.addSpacer(0)
     let label = widget.addText('ITS Belegung')
     label.font = Font.mediumSystemFont(10)
 
-} else if (data.currentIntensiveCarePatients >= 450 || data.hospitalizationLast7Days >= 1200) {
+} else if (data.currentIntensiveCarePatients >= 450 && data.currentIntensiveCarePatients <= 599 ||  data.hospitalizationLast7Days >= 1200) {
     let yellowStack = widget.addStack()
     yellowStack.layoutHorizontally()
-    yellowStack.backgroundColor = Color.lightGray()
 
     let stackITS = yellowStack.addStack()
     stackITS.layoutVertically()
-    let stringValue = stackITS.addText(data.currentIntensiveCarePatients.toString())
-    stringValue.font = Font.mediumSystemFont(20)
-    stringValue.textColor = Color.yellow()
-    
+    let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
+    stringValueITS.font = Font.mediumSystemFont(20)
+    stringValueITS.textColor = Color.yellow()
+    yellowStack.addSpacer(0)
+    let labelITS = widget.addText('ITS Belegung')
+    labelITS.font = Font.mediumSystemFont(10)
+
     yellowStack.addSpacer(0)
 
     let stackPatients = yellowStack.addStack()
@@ -62,6 +63,9 @@ if (data.currentIntensiveCarePatients >= 600) {
     let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
     stringValue2.font = Font.mediumSystemFont(20)
     stringValue2.textColor = Color.yellow()
+    yellowStack.addSpacer(0)
+    let labelHospitalization = widget.addText('Einweisungen')
+    labelHospitalization.font = Font.mediumSystemFont(10)
 }
 
 
@@ -106,18 +110,17 @@ function addStackToView(widget, data, color) {
 }
 */
 async function loadItems() {
-    /*
-    {
+    lett fooData = {
         "hospitalizationLast7Days":             740,
         "hospitalizationLast7DaysIncidence":    5.6,
-        "currentIntensiveCarePatients":         609,
+        "currentIntensiveCarePatients":         599,
         "lastSync":                             "2021-11-08T08:20:41.786Z",
         "lastUpdate":                           "2021-11-08T08:13:51.468Z"
     }
-    */
+    
     let url     = 'https://corona-ampel-bayern.de/data/data.json'
     let req     = new Request(url)
-    let json    = await req.loadJSON()
-
-    return json
+    //let json    = await req.loadJSON()
+    //return json
+    return fooData
 }
