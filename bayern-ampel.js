@@ -31,7 +31,6 @@ mainStack.layoutHorizontally()
 if (data.currentIntensiveCarePatients >= 600) {
     let redStack = widget.addStack()
     redStack.layoutHorizontally()
-    redStack.centerAlignContent()
 
     let stringValue = widget.addText(data.currentIntensiveCarePatients.toString())
     stringValue.font = Font.mediumSystemFont(20)
@@ -40,6 +39,15 @@ if (data.currentIntensiveCarePatients >= 600) {
     redStack.addSpacer(0)
     let label = widget.addText('ITS Belegung')
     label.font = Font.mediumSystemFont(6)
+
+    widget.addSpacer(10)
+
+    emojiiStack = widget.addStack()
+    emojiiStack.layoutHorizontally()
+    
+    let labelEmoji = emojiiStack.addText(' 🤬 ')
+    labelEmoji.textColor = Color.red()
+    labelEmoji.font = Font.mediumSystemFont(30)
 
 } else if (data.currentIntensiveCarePatients >= 450 && data.currentIntensiveCarePatients <= 599 ||  data.hospitalizationLast7Days >= 1200) {
     let yellowStack = widget.addStack()
@@ -64,6 +72,15 @@ if (data.currentIntensiveCarePatients >= 600) {
     yellowStack.addSpacer(0)
     let labelHospitalization = stackPatients.addText('Einweisungen')
     labelHospitalization.font = Font.mediumSystemFont(6)
+
+    yellowStack.addSpacer(10)
+
+    emojiiStack = widget.addStack()
+    emojiiStack.layoutHorizontally()
+    
+    let labelEmoji = emojiiStack.addText(' 🤮 ')
+    labelEmoji.textColor = Color.red()
+    labelEmoji.font = Font.mediumSystemFont(30)
 } else if(data.currentIntensiveCarePatients <= 449 || data.hospitalizationLast7Days <= 1199) {
     let greenStack = widget.addStack()
     greenStack.layoutHorizontally()
@@ -89,10 +106,10 @@ if (data.currentIntensiveCarePatients >= 600) {
     labelHospitalization.font = Font.mediumSystemFont(6)
 
     greenStack.addSpacer(10)
-    let allFineStack = greenStack.addStack()
+    let allFineStack = widget.addStack()
     allFineStack.layoutHorizontally()
 
-    let labelAllFine = allFineStack.addText('Alles Tutti!')
+    let labelAllFine = allFineStack.addText('Alles Tutti! 🥰')
     labelAllFine.font = Font.mediumSystemFont(20)
     labelAllFine.textColor = Color.green()
 }
