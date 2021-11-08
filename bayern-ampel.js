@@ -6,7 +6,7 @@
 **
 */
 
-let updateHash = '3aca61ebd5058f9b63e880c08e7fe327'
+let updateHash = '7e5542724d20c93d5eb5f19276df3571'
 
 let widget      = new ListWidget()
 widget.url      = 'https://corona-ampel-bayern.de/'
@@ -34,14 +34,15 @@ if (data.currentIntensiveCarePatients >= 600) {
     let redStack = widget.addStack()
     redStack.layoutHorizontally()
 
-    let label = viewStack.addText(data.currentIntensiveCarePatients.toString())
+    let label = widget.addText(data.currentIntensiveCarePatients.toString())
     label.font = Font.mediumSystemFont(20)
     label.textColor = Color.red()
 
     redStack.addSpacer(0)
-    let value = viewStack.addText('ITS Belegung')
+    let value = widget.addText('ITS Belegung')
     value.font = Font.mediumSystemFont(12)
 }
+
 
 // no data for all panes
 /*
@@ -67,7 +68,7 @@ Script.setWidget(widget)
 Script.complete()
 
 widget.presentSmall()
-
+/*
 function addStackToView(widget, data, color) {
     let viewStack = widget.addStack()
     viewStack.layoutVertically()
@@ -82,7 +83,7 @@ function addStackToView(widget, data, color) {
     value.font          = Font.mediumSystemFont(16)
     value.textColor     = color
 }
-
+*/
 async function loadItems() {
     /*
     {
