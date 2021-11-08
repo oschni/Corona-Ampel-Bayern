@@ -1,10 +1,14 @@
-/* Corona Ampel Bayern Widget
-**
-** Copyright (C) 2021 by oschn0r (ingo@stonith.org)
-**
-** Datasource: https://www.i-novation.de/corona-ampel-bayern/#api
-**
-*/
+// Variables used by Scriptable.
+// These must be at the very top of the file. Do not edit.
+// icon-color: red; icon-glyph: briefcase-medical;
+
+// Corona Ampel Bayern Widget
+//
+// Copyright (C) 2021 by oschn0r (ingo@stonith.org)
+//
+// Datasource: https://www.i-novation.de/corona-ampel-bayern/#api
+//
+//
 
 let widget      = new ListWidget()
 widget.url      = 'https://corona-ampel-bayern.de/'
@@ -125,8 +129,8 @@ if (data.currentIntensiveCarePatients >= 600) {
 Script.setWidget(widget)
 Script.complete()
 
-//widget.presentSmall()
-widget.presentMedium()
+widget.presentSmall()
+//widget.presentMedium()
 
 async function loadItems() {
     /*let json = {
