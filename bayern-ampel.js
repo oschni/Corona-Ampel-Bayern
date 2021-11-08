@@ -8,17 +8,19 @@
 
 
 let widget      = new ListWidget()
-let padding     = 22
-widget.url      = "https://corona-ampel-bayern.de/data/data.json"
+widget.url      = "https://corona-ampel-bayern.de/"
 
-widget.setPadding(padding, padding, padding, padding)
+widget.setPadding(10, 10, 10, 10)
 
 // load data from i-novation
 let data        = await loadItems()
 
 // Widget title
-let title   = widget.addText("🚦Covid Bayern".toUpperCase())
+let title   = widget.addText("🚦 Covid Bayern".toUpperCase())
 title.font  = Font.mediumSystemFont(10)
+
+let latest  = widget.addDate(new Date(data.lastUpdate))
+latest.font = Font.mediumSystemFont(6)
 
 widget.addSpacer(16)
 
@@ -50,6 +52,9 @@ function addStackToView(widget, data, color) {
 
     let label           = viewStack.addText(data.shortDescription)
     label.font          = Font.mediumSystemFont(12)
+
+    let footnote        = viewStack.addText(data.footnote)
+    footnote.font       = Font.mediumSystemFont(6)
 
     let value           = viewStack.addText(data.stringValue)
     value.font          = Font.mediumSystemFont(20)
