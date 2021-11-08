@@ -6,9 +6,10 @@
 **
 */
 
+let updateHash = '3aca61ebd5058f9b63e880c08e7fe327'
 
 let widget      = new ListWidget()
-widget.url      = "https://corona-ampel-bayern.de/"
+widget.url      = 'https://corona-ampel-bayern.de/'
 
 widget.setPadding(10, 10, 10, 10)
 
@@ -16,7 +17,7 @@ widget.setPadding(10, 10, 10, 10)
 let data        = await loadItems()
 
 // Widget title
-let title   = widget.addText("🚦 Covid Bayern".toUpperCase())
+let title   = widget.addText('🚦 Covid Bayern'.toUpperCase())
 title.font  = Font.mediumSystemFont(10)
 
 let latest  = widget.addDate(new Date(data.lastUpdate))
@@ -24,13 +25,26 @@ latest.font = Font.mediumSystemFont(6)
 
 widget.addSpacer(0)
 
-/*
-let trafficLightStack = widget.addStack()
-trafficLightStack.layoutVertically()
-addStackToView(trafficLightStack, {shortDescription: '🚦', footnote: null, stringValue: null})
-*/
+
+let mainStack = widget.addStack()
+mainStack.layoutHorizontally()
+mainStack.backgroundColor = Color.lightGray()
+
+if (data.currentIntensiveCarePatients >= 600) {
+    let redStack = widget.addStack()
+    redStack.layoutHorizontally()
+
+    let label = viewStack.addText(data.currentIntensiveCarePatients.toString())
+    label.font = Font.mediumSystemFont(20)
+    label.textColor = Color.red()
+
+    redStack.addSpacer(0)
+    let value = viewStack.addText('ITS Belegung')
+    value.font = Font.mediumSystemFont(12)
+}
 
 // no data for all panes
+/*
 let stackITS = widget.addStack()
 stackITS.layoutHorizontally()
 addStackToView(stackITS, {shortDescription: 'ITS Belegung', footnote: '(Betten)', stringValue: data.currentIntensiveCarePatients.toString()}, Color.red())
@@ -45,7 +59,7 @@ let stackIncidence = widget.addStack()
 stackIncidence.layoutHorizontally()
 addStackToView(stackIncidence, {shortDescription: 'Inzidenz', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7DaysIncidence.toString()}, Color.green())
 widget.addSpacer(0)
-
+*/
     //if (data.currentIntensiveCarePatients >= 600) {}
 // } else if (data.currentIntensiveCarePatients >= 450 || data.hospitalizationLast7Days >= 1200) {
 
@@ -79,7 +93,7 @@ async function loadItems() {
         "lastUpdate":                           "2021-11-08T08:13:51.468Z"
     }
     */
-    let url     = "https://corona-ampel-bayern.de/data/data.json"
+    let url     = 'https://corona-ampel-bayern.de/data/data.json'
     let req     = new Request(url)
     let json    = await req.loadJSON()
 
