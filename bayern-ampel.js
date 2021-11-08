@@ -60,7 +60,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     
     let labelEmoji = emojiiStack.addText(' @#§"$! 🤬 ')
     labelEmoji.textColor = Color.red()
-    labelEmoji.font = Font.mediumSystemFont(30)
+    labelEmoji.font = Font.mediumSystemFont(20)
 
 } else if (data.currentIntensiveCarePatients >= 450 && data.currentIntensiveCarePatients <= 599 ||  data.hospitalizationLast7Days >= 1200) {
     let yellowStack = widget.addStack()
@@ -92,7 +92,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     
     let labelEmoji = emojiiStack.addText(' Buääärks 🤮 ')
     labelEmoji.textColor = Color.yellow()
-    labelEmoji.font = Font.mediumSystemFont(30)
+    labelEmoji.font = Font.mediumSystemFont(20)
 } else if(data.currentIntensiveCarePatients <= 449 || data.hospitalizationLast7Days <= 1199) {
     let greenStack = widget.addStack()
     greenStack.layoutHorizontally()
