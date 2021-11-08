@@ -36,7 +36,7 @@ function addStackToView(widget, data) {
     let viewStack = widget.addStack()
     viewStack.layoutVertically()
 
-    let label           = viewStack.AddText(data.shortDescription)
+    let label           = viewStack.addText(data.shortDescription)
     label.font          = Font.mediumSystemFont(12)
 
     let value           = viewStack.addText(data.stringValue)
