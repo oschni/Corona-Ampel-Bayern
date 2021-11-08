@@ -17,31 +17,29 @@ widget.setPadding(10, 10, 10, 10)
 let data        = await loadItems()
 
 // Widget title
-let title   = widget.addText('🚦 Covid Bayern'.toUpperCase())
+let title   = widget.addText('Covid Bayern'.toUpperCase())
 title.font  = Font.mediumSystemFont(10)
 
 let latest  = widget.addDate(new Date(data.lastUpdate))
 latest.font = Font.mediumSystemFont(6)
 
-widget.addSpacer(0)
-
+widget.addSpacer(5)
 
 let mainStack = widget.addStack()
 mainStack.layoutHorizontally()
-
 
 if (data.currentIntensiveCarePatients >= 600) {
     let redStack = widget.addStack()
     redStack.layoutHorizontally()
     redStack.centerAlignContent()
-    redStack.backgroundColor = Color.lightGray()
 
     let stringValue = widget.addText(data.currentIntensiveCarePatients.toString())
     stringValue.font = Font.mediumSystemFont(20)
+    stringValue.textColor = Color.red()
 
     redStack.addSpacer(0)
     let label = widget.addText('ITS Belegung')
-    label.font = Font.mediumSystemFont(10)
+    label.font = Font.mediumSystemFont(6)
 
 } else if (data.currentIntensiveCarePatients >= 450 && data.currentIntensiveCarePatients <= 599 ||  data.hospitalizationLast7Days >= 1200) {
     let yellowStack = widget.addStack()
@@ -54,7 +52,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     stringValueITS.textColor = Color.yellow()
     yellowStack.addSpacer(0)
     let labelITS = stackITS.addText('ITS Belegung')
-    labelITS.font = Font.mediumSystemFont(10)
+    labelITS.font = Font.mediumSystemFont(6)
 
     yellowStack.addSpacer(0)
 
@@ -65,50 +63,15 @@ if (data.currentIntensiveCarePatients >= 600) {
     stringValue2.textColor = Color.yellow()
     yellowStack.addSpacer(0)
     let labelHospitalization = stackPatients.addText('Einweisungen')
-    labelHospitalization.font = Font.mediumSystemFont(10)
+    labelHospitalization.font = Font.mediumSystemFont(6)
 }
-
-
-// no data for all panes
-/*
-let stackITS = widget.addStack()
-stackITS.layoutHorizontally()
-addStackToView(stackITS, {shortDescription: 'ITS Belegung', footnote: '(Betten)', stringValue: data.currentIntensiveCarePatients.toString()}, Color.red())
-widget.addSpacer(0)
-
-let stackAdmissions = widget.addStack()
-stackAdmissions.layoutHorizontally()
-addStackToView(stackAdmissions, {shortDescription: 'Einweisungen', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7Days.toString()}, Color.yellow())
-widget.addSpacer(0)
-
-let stackIncidence = widget.addStack()
-stackIncidence.layoutHorizontally()
-addStackToView(stackIncidence, {shortDescription: 'Inzidenz', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7DaysIncidence.toString()}, Color.green())
-widget.addSpacer(0)
-*/
-    //if (data.currentIntensiveCarePatients >= 600) {}
-// } else if (data.currentIntensiveCarePatients >= 450 || data.hospitalizationLast7Days >= 1200) {
 
 Script.setWidget(widget)
 Script.complete()
 
-widget.presentSmall()
-/*
-function addStackToView(widget, data, color) {
-    let viewStack = widget.addStack()
-    viewStack.layoutVertically()
+//widget.presentSmall()
+widget.presentMedium()
 
-    let label           = viewStack.addText(data.shortDescription)
-    label.font          = Font.mediumSystemFont(10)
-
-    let footnote        = viewStack.addText(data.footnote)
-    footnote.font       = Font.mediumSystemFont(6)
-
-    let value           = viewStack.addText(data.stringValue)
-    value.font          = Font.mediumSystemFont(16)
-    value.textColor     = color
-}
-*/
 async function loadItems() {
     let fooData = {
         "hospitalizationLast7Days":             740,
