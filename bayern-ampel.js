@@ -33,7 +33,7 @@ addStackToView(stackAdmissions, {shortDescription: 'Einweisungen', footnote: '(7
 
 let stackIncidence = widget.addStack()
 stackIncidence.layoutHorizontally()
-addStackToView(stackIncidence, {shortDescription: 'Inzidenz', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7DaysIncidence}, Color.green())
+addStackToView(stackIncidence, {shortDescription: 'Inzidenz', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7DaysIncidence.toString()}, Color.green())
 
 
     //if (data.currentIntensiveCarePatients >= 600) {}
