@@ -17,22 +17,34 @@ widget.setPadding(padding, padding, padding, padding)
 let data        = await loadItems()
 
 // Widget title
-let title   = widget.addText("🚦Covid-19 Bayern".toUpperCase())
+let title   = widget.addText("🚦Covid Bayern".toUpperCase())
 title.font  = Font.mediumSystemFont(10)
 
 widget.addSpacer(16)
 
-// create three panes with traffic light data
-let redStack = widget.addStack()
-redStack.layoutHorizontally()
-addStackToView(redStack, {shortDescription: 'ITS', stringValue: data.currentIntensiveCarePatients.toString()})
+// no data for all panes
+let stackITS = widget.addStack()
+stackITS.layoutHorizontally()
+addStackToView(stackITS, {shortDescription: 'ITS Belegung:', footnote: '(Betten)', stringValue: data.currentIntensiveCarePatients.toString()}, Color.red())
+
+let stackAdmissions = widget.addStack()
+stackAdmissions.layoutHorizontally()
+addStackToView(stackAdmissions, {shortDescription: 'Einweisungen', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7Days.toString()}, Color.yellow())
+
+let stackIncidence = widget.addStack()
+stackIncidence.layoutHorizontally()
+addStackToView(stackIncidence, {shortDescription: 'Inzidenz', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7DaysIncidence}, Color.green())
+
+
+    //if (data.currentIntensiveCarePatients >= 600) {}
+// } else if (data.currentIntensiveCarePatients >= 450 || data.hospitalizationLast7Days >= 1200) {
 
 Script.setWidget(widget)
 Script.complete()
 
 widget.presentSmall()
 
-function addStackToView(widget, data) {
+function addStackToView(widget, data, color) {
     let viewStack = widget.addStack()
     viewStack.layoutVertically()
 
@@ -41,7 +53,7 @@ function addStackToView(widget, data) {
 
     let value           = viewStack.addText(data.stringValue)
     value.font          = Font.mediumSystemFont(20)
-    value.textColor     = Color.white()
+    value.textColor     = color
 }
 
 async function loadItems() {
