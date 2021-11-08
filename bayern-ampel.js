@@ -34,17 +34,17 @@ addStackToView(trafficLightStack, {shortDescription: '🚦', footnote: null, str
 let stackITS = widget.addStack()
 stackITS.layoutHorizontally()
 addStackToView(stackITS, {shortDescription: 'ITS Belegung', footnote: '(Betten)', stringValue: data.currentIntensiveCarePatients.toString()}, Color.red())
-widget.addSpacer(5)
+widget.addSpacer(2)
 
 let stackAdmissions = widget.addStack()
 stackAdmissions.layoutHorizontally()
 addStackToView(stackAdmissions, {shortDescription: 'Einweisungen', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7Days.toString()}, Color.yellow())
-widget.addSpacer(5)
+widget.addSpacer(2)
 
 let stackIncidence = widget.addStack()
 stackIncidence.layoutHorizontally()
 addStackToView(stackIncidence, {shortDescription: 'Inzidenz', footnote: '(7 Tage)', stringValue: data.hospitalizationLast7DaysIncidence.toString()}, Color.green())
-widget.addSpacer(5)
+widget.addSpacer(2)
 
     //if (data.currentIntensiveCarePatients >= 600) {}
 // } else if (data.currentIntensiveCarePatients >= 450 || data.hospitalizationLast7Days >= 1200) {
@@ -59,13 +59,13 @@ function addStackToView(widget, data, color) {
     viewStack.layoutVertically()
 
     let label           = viewStack.addText(data.shortDescription)
-    label.font          = Font.mediumSystemFont(12)
+    label.font          = Font.mediumSystemFont(10)
 
     let footnote        = viewStack.addText(data.footnote)
     footnote.font       = Font.mediumSystemFont(6)
 
     let value           = viewStack.addText(data.stringValue)
-    value.font          = Font.mediumSystemFont(20)
+    value.font          = Font.mediumSystemFont(16)
     value.textColor     = color
 }
 
