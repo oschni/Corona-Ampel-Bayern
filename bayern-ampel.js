@@ -121,7 +121,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     let allFineStack = widget.addStack()
     allFineStack.layoutHorizontally()
 
-    let labelAllFine = allFineStack.addText('Alles Tutti! 🥰')
+    let labelAllFine = allFineStack.addText(' Alles Tutti! 🥰 ')
     labelAllFine.font = Font.mediumSystemFont(20)
     labelAllFine.textColor = Color.green()
 }
