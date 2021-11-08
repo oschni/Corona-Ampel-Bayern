@@ -6,7 +6,7 @@
 **
 */
 
-let updateHash = '7e5542724d20c93d5eb5f44a16388595759e5f429d587d9438afc19276df357106ec664b4ae75932317d71379968fe4e'
+let updateHash = 'c578e329a89c8fd2f65cdeae178f3519'
 
 let widget      = new ListWidget()
 widget.url      = 'https://corona-ampel-bayern.de/'
@@ -53,7 +53,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     stringValueITS.font = Font.mediumSystemFont(20)
     stringValueITS.textColor = Color.yellow()
     yellowStack.addSpacer(0)
-    let labelITS = widget.addText('ITS Belegung')
+    let labelITS = stackITS.addText('ITS Belegung')
     labelITS.font = Font.mediumSystemFont(10)
 
     yellowStack.addSpacer(0)
@@ -64,7 +64,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     stringValue2.font = Font.mediumSystemFont(20)
     stringValue2.textColor = Color.yellow()
     yellowStack.addSpacer(0)
-    let labelHospitalization = widget.addText('Einweisungen')
+    let labelHospitalization = stackPatients.addText('Einweisungen')
     labelHospitalization.font = Font.mediumSystemFont(10)
 }
 
@@ -110,7 +110,7 @@ function addStackToView(widget, data, color) {
 }
 */
 async function loadItems() {
-    lett fooData = {
+    let fooData = {
         "hospitalizationLast7Days":             740,
         "hospitalizationLast7DaysIncidence":    5.6,
         "currentIntensiveCarePatients":         599,
