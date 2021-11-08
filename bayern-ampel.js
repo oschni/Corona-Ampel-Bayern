@@ -6,8 +6,6 @@
 **
 */
 
-let updateHash = 'c578e329a89c8fd2f65cdeae178f3519'
-
 let widget      = new ListWidget()
 widget.url      = 'https://corona-ampel-bayern.de/'
 
@@ -17,7 +15,7 @@ widget.setPadding(10, 10, 10, 10)
 let data        = await loadItems()
 
 // Widget title
-let title   = widget.addText('Covid Bayern'.toUpperCase())
+let title   = widget.addText('Covid Ampel BY'.toUpperCase())
 title.font  = Font.mediumSystemFont(10)
 
 let latest  = widget.addDate(new Date(data.lastUpdate))
@@ -89,7 +87,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     emojiiStack.layoutHorizontally()
     
     let labelEmoji = emojiiStack.addText(' Buääärks 🤮 ')
-    labelEmoji.textColor = Color.red()
+    labelEmoji.textColor = Color.yellow()
     labelEmoji.font = Font.mediumSystemFont(30)
 } else if(data.currentIntensiveCarePatients <= 449 || data.hospitalizationLast7Days <= 1199) {
     let greenStack = widget.addStack()
@@ -131,17 +129,16 @@ Script.complete()
 widget.presentMedium()
 
 async function loadItems() {
-    let fooData = {
+    /*let json = {
         "hospitalizationLast7Days":             740,
         "hospitalizationLast7DaysIncidence":    5.6,
         "currentIntensiveCarePatients":         599,
         "lastSync":                             "2021-11-08T08:20:41.786Z",
         "lastUpdate":                           "2021-11-08T08:13:51.468Z"
-    }
+    }*/
     
     let url     = 'https://corona-ampel-bayern.de/data/data.json'
     let req     = new Request(url)
-    //let json    = await req.loadJSON()
-    //return json
-    return fooData
+    let json    = await req.loadJSON()
+    return json
 }
