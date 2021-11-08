@@ -15,7 +15,11 @@ Stufe Gelb wird ab einer ITS Belegung von >= 450 <= 599 Betten erscheinen ODER 1
 ### Alles Tutti! 🥰
 Wenn keines der ersten beiden Kriterien eintrifft. 
 
+## Installation
+https://scriptable.app/ wird vorrausgesetzt. Am einfachsten ist die Installation mit https://scriptdu.de/
 
-# Danke an
+
+
+## Danke an
 
 - https://www.i-novation.de/corona-ampel-bayern/

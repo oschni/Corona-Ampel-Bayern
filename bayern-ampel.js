@@ -134,12 +134,20 @@ widget.presentSmall()
 
 async function loadItems() {
     /*let json = {
-        "hospitalizationLast7Days":             740,
-        "hospitalizationLast7DaysIncidence":    5.6,
-        "currentIntensiveCarePatients":         599,
-        "lastSync":                             "2021-11-08T08:20:41.786Z",
-        "lastUpdate":                           "2021-11-08T08:13:51.468Z"
-    }*/
+    "hospitalizationLast7Days": 709,
+    "hospitalizationLast7DaysIncidence": 5.4,
+    "currentIntensiveCarePatients": 608,
+    "lastSync": "2021-11-08T13:15:02.598Z",
+    "lastUpdate": "2021-11-08T13:15:06.496Z",
+    "state": "red",
+    "officialState": "yellow",
+    "nextSwitch": {
+        "date": "2021-11-08T23:00:00.000Z",
+        "state": "red"
+    },
+    "yellowPercent": 135.1,
+    "redPercent": 101.3
+}*/
     
     let url     = 'https://corona-ampel-bayern.de/data/data.json'
     let req     = new Request(url)
