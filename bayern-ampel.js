@@ -106,18 +106,18 @@ nextStateStack.addSpacer()
 
 let strNext = ''
 
-if (data.nextSwitch.date !== null) {
+if (data.nextSwitch === null) {
+    strNext = 'n/a'
+} else {
     let dFnext = new DateFormatter()
     dFnext.dateFormat = 'dd.MM.YYYY HH:mm'
     strNext = dFnext.string(new Date(data.nextSwitch.date))
-} else {
-    strNext = 'n/a'
 }
 
 let labelNextstate = nextStateStack.addText(`Next switch: ${strNext}`)
 labelNextstate.font = Font.mediumSystemFont(8)
 labelNextstate.textColor = Color.darkGray()
-labelNextstate.addSpacer()
+nextStateStack.addSpacer()
 
 Script.setWidget(widget)
 Script.complete()
