@@ -88,9 +88,9 @@ if (data.officialState === 'red') {
     labelEmoji.textColor = Color.yellow()
     labelEmoji.font = Font.mediumSystemFont(20)
 } else if (data.officialState === 'green') {
-    let labelAllFine = allFineStack.addText(' Alles Tutti! 🥰 ')
-    labelAllFine.font = Font.mediumSystemFont(20)
-    labelAllFine.textColor = Color.green()
+    let labelEmoji = emojiiStack.addText(' Alles Tutti! 🥰 ')
+    labelEmoji.font = Font.mediumSystemFont(20)
+    labelEmoji.textColor = Color.green()
 }
 emojiiStack.addSpacer()
 
