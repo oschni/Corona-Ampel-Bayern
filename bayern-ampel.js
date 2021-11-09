@@ -29,7 +29,7 @@ let lastUpdate  = widget.addText(dF.string(new Date(data.lastUpdate)))
 lastUpdate.font = Font.mediumSystemFont(10)
 lastUpdate.textColor = Color.darkGray()
 
-widget.addSpacer(5)
+widget.addSpacer()
 
 // begin layout stacks
 
@@ -49,6 +49,8 @@ widget.addSpacer(5)
 let footStack = widget.addStack()
 footStack.layoutVertically()
 footStack.centerAlignContent()
+
+widget.addSpacer()
 
 // end layout stacks
 
