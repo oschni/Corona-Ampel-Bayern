@@ -44,114 +44,57 @@ footStack.layoutVertically()
 footStack.backgroundColor = Color.green()
 footStack.centerAlignContent()
 
+let redStack = mainStack.addStack()
+redStack.layoutHorizontally()
+redStack.addSpacer()
+
+let stackITS = redStack.addStack()
+stackITS.layoutVertically()
+
+let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
+stringValueITS.font = Font.mediumSystemFont(20)
+stringValueITS.textColor = Color.red()
+stringValueITS.centerAlignText()
+
+redStack.addSpacer()
+
+let labelITS = stackITS.addText('ITS Belegung')
+labelITS.font = Font.mediumSystemFont(6)
+
+redStack.addSpacer()
+
+let stackPatients = redStack.addStack()
+stackPatients.layoutVertically()
+
+let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
+stringValue2.font = Font.mediumSystemFont(20)
+stringValue2.textColor = Color.red()
+
+redStack.addSpacer()
+
+let labelHospitalization = stackPatients.addText('Einweisungen')
+labelHospitalization.font = Font.mediumSystemFont(6)
+
+redStack.addSpacer()
+
+emojiiStack = footStack.addStack()
+emojiiStack.layoutHorizontally()
+emojiiStack.addSpacer()
+
 if (data.officialState === 'red') {
-    let redStack = mainStack.addStack()
-    redStack.layoutHorizontally()
-    redStack.addSpacer()
-
-    let stackITS = redStack.addStack()
-    stackITS.layoutVertically()
-    
-    let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
-    stringValueITS.font = Font.mediumSystemFont(20)
-    stringValueITS.textColor = Color.red()
-    stringValueITS.centerAlignText()
-
-    redStack.addSpacer()
-
-    let labelITS = stackITS.addText('ITS Belegung')
-    labelITS.font = Font.mediumSystemFont(6)
-
-    redStack.addSpacer()
-
-    let stackPatients = redStack.addStack()
-    stackPatients.layoutVertically()
-
-    let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
-    stringValue2.font = Font.mediumSystemFont(20)
-    stringValue2.textColor = Color.red()
-    
-    redStack.addSpacer()
-    
-    let labelHospitalization = stackPatients.addText('Einweisungen')
-    labelHospitalization.font = Font.mediumSystemFont(6)
-
-    redStack.addSpacer()
-    
-    emojiiStack = footStack.addStack()
-    emojiiStack.layoutHorizontally()
-    emojiiStack.addSpacer()
-    
     let labelEmoji = emojiiStack.addText(' @#§"$! 🤬 ')
     labelEmoji.textColor = Color.red()
     labelEmoji.font = Font.mediumSystemFont(20)
-
-    emojiiStack.addSpacer()
-
 } else if (data.officialState === 'yellow') {
-    let yellowStack = widget.addStack()
-    yellowStack.layoutHorizontally()
-
-    let stackITS = yellowStack.addStack()
-    stackITS.layoutVertically()
-    let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
-    stringValueITS.font = Font.mediumSystemFont(20)
-    stringValueITS.textColor = Color.yellow()
-    yellowStack.addSpacer(0)
-    let labelITS = stackITS.addText('ITS Belegung')
-    labelITS.font = Font.mediumSystemFont(6)
-
-    yellowStack.addSpacer(40)
-
-    let stackPatients = yellowStack.addStack()
-    stackPatients.layoutVertically()
-    let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
-    stringValue2.font = Font.mediumSystemFont(20)
-    stringValue2.textColor = Color.yellow()
-    yellowStack.addSpacer(0)
-    let labelHospitalization = stackPatients.addText('Einweisungen')
-    labelHospitalization.font = Font.mediumSystemFont(6)
-
-    widget.addSpacer(20)
-    emojiiStack = widget.addStack()
-    emojiiStack.layoutHorizontally()
-    
     let labelEmoji = emojiiStack.addText(' Buääärks 🤮 ')
     labelEmoji.textColor = Color.yellow()
     labelEmoji.font = Font.mediumSystemFont(20)
-
-} else if(data.officialState === 'green') {
-    let greenStack = widget.addStack()
-    greenStack.layoutHorizontally()
-
-    let stackITS = greenStack.addStack()
-    stackITS.layoutVertically()
-    let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
-    stringValueITS.font = Font.mediumSystemFont(20)
-    stringValueITS.textColor = Color.green()
-    greenStack.addSpacer(0)
-    let labelITS = stackITS.addText('ITS Belegung')
-    labelITS.font = Font.mediumSystemFont(6)
-
-    greenStack.addSpacer(40)
-
-    let stackPatients = greenStack.addStack()
-    stackPatients.layoutVertically()
-    let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
-    stringValue2.font = Font.mediumSystemFont(20)
-    stringValue2.textColor = Color.green()
-    greenStack.addSpacer(0)
-    let labelHospitalization = stackPatients.addText('Einweisungen')
-    labelHospitalization.font = Font.mediumSystemFont(6)
-
-    widget.addSpacer(20)
-    let allFineStack = widget.addStack()
-    allFineStack.layoutHorizontally()
-
+} else if (data.officialState === 'green') {
     let labelAllFine = allFineStack.addText(' Alles Tutti! 🥰 ')
     labelAllFine.font = Font.mediumSystemFont(20)
     labelAllFine.textColor = Color.green()
 }
+emojiiStack.addSpacer()
 
 Script.setWidget(widget)
 Script.complete()
