@@ -33,8 +33,9 @@ widget.addSpacer(5)
 
 let mainStack = widget.addStack()
 mainStack.layoutVertically()
-mainStack.backgroundColor = Color.lightGray()
+mainStack.backgroundColor = Color.darkGray()
 mainStack.centerAlignContent()
+mainStack.
 
 widget.addSpacer(5)
 
@@ -84,6 +85,8 @@ if (data.officialState === 'red') {
     let labelEmoji = emojiiStack.addText(' @#§"$! 🤬 ')
     labelEmoji.textColor = Color.red()
     labelEmoji.font = Font.mediumSystemFont(20)
+
+    emojiiStack.addSpacer()
 
 } else if (data.officialState === 'yellow') {
     let yellowStack = widget.addStack()
