@@ -80,15 +80,15 @@ emojiiStack.layoutHorizontally()
 emojiiStack.addSpacer()
 
 if (data.officialState === 'red') {
-    let labelEmoji = emojiiStack.addText(' @#§"$! 🤬 ')
+    let labelEmoji = emojiiStack.addText(' Red 🤬 ')
     labelEmoji.textColor = Color.red()
     labelEmoji.font = Font.mediumSystemFont(20)
 } else if (data.officialState === 'yellow') {
-    let labelEmoji = emojiiStack.addText(' Buääärks 🤮 ')
+    let labelEmoji = emojiiStack.addText(' Yellow 🤮 ')
     labelEmoji.textColor = Color.yellow()
     labelEmoji.font = Font.mediumSystemFont(20)
 } else if (data.officialState === 'green') {
-    let labelEmoji = emojiiStack.addText(' Alles Tutti! 🥰 ')
+    let labelEmoji = emojiiStack.addText(' Green 🥰 ')
     labelEmoji.font = Font.mediumSystemFont(20)
     labelEmoji.textColor = Color.green()
 }

@@ -1,25 +1,23 @@
-# Corona Ampel für Bayern
+# Corona Ampel Bayern / Corona Traffic Light Bavaria
 
-Das Widget zeigt die Corona Ampel für Bayern an. Daten kommen von https://corona-ampel-bayern.de/ auf Basis von https://www.i-novation.de/corona-ampel-bayern/#api. Vielen Dank.
+This iOS widget shows the official corona traffic light state for bavaria. The data is aggregated by https://www.i-novation.de/ who provide this data as free and open data for everyone. This data could be found at https://corona-ampel-bayern.de/
 
-Seit dem 06.11.2021 gelten überarbeitete Corona Ampel Regeln.
+Since November 6th 2021 there are new corona traffic light rules. https://www.stmgp.bayern.de/coronavirus/
 
-## Ampel 
+## Widget 
 
-### @#§"$! 🤬
-Stufe rot erscheint aber einer ITS Belegung von >= 600 Betten.
+### Red 🤬
+This is red alert and not funny! ICU occupancy is bigger then >= 600 beds
 
-### Buääärks 🤮
-Stufe Gelb wird ab einer ITS Belegung von >= 450 <= 599 Betten erscheinen ODER 1200 Corona-Einweisungen.
+### Yellow 🤮
+Yellow state is shown between 450 ICU occupancies and less then 599 beds OR 1200 corona hospitalizations.
 
-### Alles Tutti! 🥰
-Wenn keines der ersten beiden Kriterien eintrifft. 
+### Green 🥰
+If no of the criterias above are reached.
 
 ## Installation
-https://scriptable.app/ wird vorrausgesetzt. Am einfachsten ist die Installation mit https://scriptdu.de/
+Install https://scriptable.app/ on our iPhone. The easiest way is to install this widget via https://scriptdu.de/. Start Scriptable, touch Scriptdude and "Install from URL". Enter a nice and easy script name and use the direct-raw-file-url as a source url. 
 
-
-
-## Danke an
-
+## Thanks to
 - https://www.i-novation.de/corona-ampel-bayern/
+
