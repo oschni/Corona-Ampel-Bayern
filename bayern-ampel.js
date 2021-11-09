@@ -36,6 +36,13 @@ mainStack.layoutVertically()
 mainStack.backgroundColor = Color.lightGray()
 mainStack.centerAlignContent()
 
+widget.addSpacer(5)
+
+let footStack = widget.addStack()
+footStack.layoutVertically()
+footStack.backgroundColor = Color.green()
+footStack.centerAlignContent()
+
 if (data.officialState === 'red') {
     let redStack = mainStack.addStack()
     redStack.layoutHorizontally()
@@ -63,15 +70,16 @@ if (data.officialState === 'red') {
     stringValue2.font = Font.mediumSystemFont(20)
     stringValue2.textColor = Color.red()
     
-    redStack.addSpacer(0)
+    redStack.addSpacer()
     
     let labelHospitalization = stackPatients.addText('Einweisungen')
     labelHospitalization.font = Font.mediumSystemFont(6)
 
-    widget.addSpacer(20)
+    redStack.addSpacer()
     
-    emojiiStack = widget.addStack()
+    emojiiStack = footStack.addStack()
     emojiiStack.layoutHorizontally()
+    emojiiStack.addSpacer()
     
     let labelEmoji = emojiiStack.addText(' @#§"$! 🤬 ')
     labelEmoji.textColor = Color.red()
