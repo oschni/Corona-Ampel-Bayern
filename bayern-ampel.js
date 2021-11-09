@@ -35,13 +35,11 @@ let mainStack = widget.addStack()
 mainStack.layoutVertically()
 mainStack.backgroundColor = Color.darkGray()
 mainStack.centerAlignContent()
-mainStack.
 
 widget.addSpacer(5)
 
 let footStack = widget.addStack()
 footStack.layoutVertically()
-footStack.backgroundColor = Color.green()
 footStack.centerAlignContent()
 
 let contentStack = mainStack.addStack()
