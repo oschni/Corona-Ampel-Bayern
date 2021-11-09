@@ -104,9 +104,15 @@ let nextStateStack = footStack.addStack()
 nextStateStack.layoutHorizontally()
 nextStateStack.addSpacer()
 
-let dFnext = new DateFormatter()
-dFnext.dateFormat = 'dd.MM.YYYY HH:mm'
-let strNext = dFnext.string(new Date(data.nextSwitch.date))
+let strNext = ''
+
+if (data.nextSwitch.date !== null) {
+    let dFnext = new DateFormatter()
+    dFnext.dateFormat = 'dd.MM.YYYY HH:mm'
+    strNext = dFnext.string(new Date(data.nextSwitch.date))
+} else {
+    strNext = 'n/a'
+}
 
 let labelNextstate = nextStateStack.addText(`Next switch: ${strNext}`)
 labelNextstate.font = Font.mediumSystemFont(8)
