@@ -31,6 +31,8 @@ lastUpdate.textColor = Color.darkGray()
 
 widget.addSpacer(5)
 
+// begin layout stacks
+
 let mainStack = widget.addStack()
 mainStack.layoutVertically()
 mainStack.backgroundColor = Color.darkGray()
@@ -38,13 +40,17 @@ mainStack.centerAlignContent()
 
 widget.addSpacer(5)
 
+let contentStack = mainStack.addStack()
+contentStack.layoutHorizontally()
+contentStack.addSpacer()
+
+widget.addSpacer(5)
+
 let footStack = widget.addStack()
 footStack.layoutVertically()
 footStack.centerAlignContent()
 
-let contentStack = mainStack.addStack()
-contentStack.layoutHorizontally()
-contentStack.addSpacer()
+// end layout stacks
 
 let stackITS = contentStack.addStack()
 stackITS.layoutVertically()
@@ -93,6 +99,19 @@ if (data.officialState === 'red') {
     labelEmoji.textColor = Color.green()
 }
 emojiiStack.addSpacer()
+
+let nextStateStack = footStack.addStack()
+nextStateStack.layoutHorizontally()
+nextStateStack.addSpacer()
+
+let dFnext = new DateFormatter()
+dFnext.dateFormat = 'dd.MM.YYYY HH:mm'
+let strNext = dFnext.string(new Date(data.nextSwitch.date))
+
+let labelNextstate = nextStateStack.addText(`Next switch: ${strNext}`)
+labelNextstate.font = Font.mediumSystemFont(8)
+labelNextstate.textColor = Color.darkGray()
+labelNextstate.addSpacer()
 
 Script.setWidget(widget)
 Script.complete()
