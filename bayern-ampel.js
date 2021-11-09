@@ -22,15 +22,19 @@ let data        = await loadItems()
 let title   = widget.addText('Covid Ampel BY'.toUpperCase())
 title.font  = Font.mediumSystemFont(10)
 
-let latest  = widget.addDate(new Date(data.lastUpdate))
-latest.font = Font.mediumSystemFont(6)
+let dF = new DateFormatter()
+dF.dateFormat = 'dd.MM.YYYY HH:mm'
+
+let lastUpdate  = widget.addText(new Date(dF.string(data.lastUpdate)))
+lastUpdate.font = Font.mediumSystemFont(10)
+lastUpdate.textColor = Color.darkGray()
 
 widget.addSpacer(25)
 
 let mainStack = widget.addStack()
 mainStack.layoutHorizontally()
 
-if (data.currentIntensiveCarePatients >= 600) {
+if (data.officialState === 'red') {
     let redStack = widget.addStack()
     redStack.layoutHorizontally()
 
@@ -62,7 +66,7 @@ if (data.currentIntensiveCarePatients >= 600) {
     labelEmoji.textColor = Color.red()
     labelEmoji.font = Font.mediumSystemFont(20)
 
-} else if (data.currentIntensiveCarePatients >= 450 && data.currentIntensiveCarePatients <= 599 ||  data.hospitalizationLast7Days >= 1200) {
+} else if (data.officialState === 'yellow') {
     let yellowStack = widget.addStack()
     yellowStack.layoutHorizontally()
 
@@ -93,7 +97,8 @@ if (data.currentIntensiveCarePatients >= 600) {
     let labelEmoji = emojiiStack.addText(' Buääärks 🤮 ')
     labelEmoji.textColor = Color.yellow()
     labelEmoji.font = Font.mediumSystemFont(20)
-} else if(data.currentIntensiveCarePatients <= 449 || data.hospitalizationLast7Days <= 1199) {
+
+} else if(data.officialState === 'green') {
     let greenStack = widget.addStack()
     greenStack.layoutHorizontally()
 
@@ -133,6 +138,7 @@ widget.presentSmall()
 //widget.presentMedium()
 
 async function loadItems() {
+    // json.nextswitch could be null
     /*let json = {
     "hospitalizationLast7Days": 709,
     "hospitalizationLast7DaysIncidence": 5.4,
