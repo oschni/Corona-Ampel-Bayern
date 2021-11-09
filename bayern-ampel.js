@@ -25,7 +25,7 @@ title.font  = Font.mediumSystemFont(10)
 let dF = new DateFormatter()
 dF.dateFormat = 'dd.MM.YYYY HH:mm'
 
-let lastUpdate  = widget.addText(dF.string(new Date(data.lastUpdate)))
+let lastUpdate  = widget.addText(new Date(dF.string(data.lastUpdate)))
 lastUpdate.font = Font.mediumSystemFont(10)
 lastUpdate.textColor = Color.darkGray()
 
