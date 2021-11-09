@@ -25,40 +25,51 @@ title.font  = Font.mediumSystemFont(10)
 let dF = new DateFormatter()
 dF.dateFormat = 'dd.MM.YYYY HH:mm'
 
-let lastUpdate  = widget.addText(new Date(dF.string(data.lastUpdate)))
+let lastUpdate  = widget.addText(dF.string(new Date(data.lastUpdate)))
 lastUpdate.font = Font.mediumSystemFont(10)
 lastUpdate.textColor = Color.darkGray()
 
-widget.addSpacer(25)
+widget.addSpacer(5)
 
 let mainStack = widget.addStack()
-mainStack.layoutHorizontally()
+mainStack.layoutVertically()
+mainStack.backgroundColor = Color.lightGray()
+mainStack.centerAlignContent()
 
 if (data.officialState === 'red') {
-    let redStack = widget.addStack()
+    let redStack = mainStack.addStack()
     redStack.layoutHorizontally()
+    redStack.addSpacer()
 
     let stackITS = redStack.addStack()
     stackITS.layoutVertically()
+    
     let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
     stringValueITS.font = Font.mediumSystemFont(20)
     stringValueITS.textColor = Color.red()
-    redStack.addSpacer(0)
+    stringValueITS.centerAlignText()
+
+    redStack.addSpacer()
+
     let labelITS = stackITS.addText('ITS Belegung')
     labelITS.font = Font.mediumSystemFont(6)
 
-    redStack.addSpacer(40)
+    redStack.addSpacer()
 
     let stackPatients = redStack.addStack()
     stackPatients.layoutVertically()
+
     let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
     stringValue2.font = Font.mediumSystemFont(20)
     stringValue2.textColor = Color.red()
+    
     redStack.addSpacer(0)
+    
     let labelHospitalization = stackPatients.addText('Einweisungen')
     labelHospitalization.font = Font.mediumSystemFont(6)
 
     widget.addSpacer(20)
+    
     emojiiStack = widget.addStack()
     emojiiStack.layoutHorizontally()
     
