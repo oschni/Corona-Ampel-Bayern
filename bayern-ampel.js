@@ -44,11 +44,11 @@ footStack.layoutVertically()
 footStack.backgroundColor = Color.green()
 footStack.centerAlignContent()
 
-let redStack = mainStack.addStack()
-redStack.layoutHorizontally()
-redStack.addSpacer()
+let contentStack = mainStack.addStack()
+contentStack.layoutHorizontally()
+contentStack.addSpacer()
 
-let stackITS = redStack.addStack()
+let stackITS = contentStack.addStack()
 stackITS.layoutVertically()
 
 let stringValueITS = stackITS.addText(data.currentIntensiveCarePatients.toString())
@@ -56,26 +56,26 @@ stringValueITS.font = Font.mediumSystemFont(20)
 stringValueITS.textColor = Color.red()
 stringValueITS.centerAlignText()
 
-redStack.addSpacer()
+contentStack.addSpacer()
 
 let labelITS = stackITS.addText('ITS Belegung')
 labelITS.font = Font.mediumSystemFont(6)
 
-redStack.addSpacer()
+contentStack.addSpacer()
 
-let stackPatients = redStack.addStack()
+let stackPatients = contentStack.addStack()
 stackPatients.layoutVertically()
 
 let stringValue2 = stackPatients.addText(data.hospitalizationLast7Days.toString())
 stringValue2.font = Font.mediumSystemFont(20)
 stringValue2.textColor = Color.red()
 
-redStack.addSpacer()
+contentStack.addSpacer()
 
 let labelHospitalization = stackPatients.addText('Einweisungen')
 labelHospitalization.font = Font.mediumSystemFont(6)
 
-redStack.addSpacer()
+contentStack.addSpacer()
 
 emojiiStack = footStack.addStack()
 emojiiStack.layoutHorizontally()
